@@ -1,0 +1,30 @@
+// import logo from './logo.svg';
+import './App.css';
+import Home from './pages/Home'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import MyBlogs from './pages/MyBlogs'
+import CreatePost from './pages/CreatePost'
+import PostDetails from './pages/PostDetails'
+import EditPost from './pages/EditPost'
+import Profile from './pages/Profile'
+import { Route, Routes } from 'react-router-dom';
+
+function App() {
+  return (
+    <>
+    <Routes>
+      <Route exact path='/' element={<Home/>}/>
+      <Route exact path='/login' element={<Login/>}/>
+      <Route exact path='/register' element={<Register/>}/>
+      <Route exact path='/write' element={<CreatePost/>}/>
+      <Route exact path='/Post/post/:id' element={<PostDetails/>}/>
+      <Route exact path='/edit/:id' element={<EditPost/>}/>
+      <Route exact path='/myblogs/:id' element={<MyBlogs/>}/>
+      <Route exact path='/profile/:id' element={<Profile/>}/>
+    </Routes>
+    </>
+  );
+}
+
+export default App;
