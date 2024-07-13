@@ -4,6 +4,8 @@ import { createContext,useEffect,useState } from 'react'
 import {URL} from '../url'
 
 export const UserContext=createContext({})
+
+export default function UserContextProvider({children}){
 const [user,setUser]=useState(null)
 
 useEffect(()=>{
@@ -20,7 +22,6 @@ const getUser=async()=>{
     }
 }
 
-export default function UserContextProvider({children}){
     return(
         <UserContext.Provider value={{user,setUser}}>
             {children}

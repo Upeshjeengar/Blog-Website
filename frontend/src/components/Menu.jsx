@@ -1,13 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { UserContext } from '../context/UserContext'
-import { UseContext } from 'react'
+import {useContext} from "react"
 import axios from 'axios'
-import {Link,useNavigation,userNavigation} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 
 function Menu() {
 const {user}=useContext(UserContext)
-const {setUser}=useContext(useContext)
-const navigate=useNavigation()
+const {setUser}=useContext(UserContext)
+const navigate=useNavigate()
+
 const handleLogout=async()=>{
   try{
     const res=await axios.get("/api/auth/logout",{withCredentials:true})
@@ -33,7 +34,7 @@ const handleLogout=async()=>{
       }
       {
         !user && <h3 className='text-white text-sm hover:text-gray-500 cursor-pointer '>
-          <Link to={'/profile/'+user_id}>Profile</Link>
+          <Link to={'/profile/'}>Profile</Link> {/*+user._id*/}
         </h3>
       }
       {
