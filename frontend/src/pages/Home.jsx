@@ -1,6 +1,5 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-// import HomePosts from "../components/HomePost"
 import Footer from "../components/Footer"
 import axios from 'axios'
 import {URL} from '../url'
@@ -31,10 +30,12 @@ function Home() {
         category?.forEach((cata)=>{
         if(cata.length>0) sets.add(cata)
         })
-      })
-      setLoader(false)
+      }) 
       setCat(Array.from(sets))
+      setLoader(false)
+
       console.log(res.data)
+      
       if(res.data.length === 0){
         setNoResults(true)
       }
@@ -55,7 +56,7 @@ function Home() {
 
   const fillterData = (filterData)=>{
     let newpost = posts.filter((pos)=>{
-      return pos?.categories.includes(fillterData)
+      return pos?.categories.includes(filterData)
     })
     setFilterData(newpost)
   }

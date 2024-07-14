@@ -12,13 +12,13 @@ function Login() {
 
   const handleLogin = async()=>{
     try{
-      const res = await fetch("/api/auth/login/",{
+      const res = await fetch("/api/auth/login",{
         method:'POST',
         headers:{
-          'content-type':'application/json'
+          'content-type':'application/json',
         },
         credentials:'include',
-        body:JSON.stringify({email:email,password:password})
+        body: JSON.stringify({email:email,password:password})
       })
 
       if(res.ok){
@@ -56,7 +56,7 @@ function Login() {
           <h1 className="text-xl font-bold text-left">
             Login to your account
           </h1>
-          <input onChange={(e)=>setemail(e.target.value)} className='w-full px-4 py-2 border-black outline-0 ' type='text' placeholder='Enter your email'>
+          <input onChange={(e)=>setemail(e.target.value)} className='w-full px-4 py-2 border-black outline-0 ' type='email' placeholder='Enter your email'>
           </input>
           <input onChange={(e)=>setpassword(e.target.value)} className='w-full px-4 py-2 border-black outline-0 ' type='password' placeholder='Enter your password'>
           </input>

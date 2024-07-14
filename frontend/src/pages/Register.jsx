@@ -10,6 +10,7 @@ function Register() {
   const [password,setpassword] = useState("")
   const [error,seterror] = useState(false) //setting error message to false initially
   const navigate = useNavigate()
+
   const handleRegister = async()=>{
     try{
       const res=await axios.post(URL+"/api/auth/register/",{
@@ -43,7 +44,7 @@ function Register() {
           </h1>
           <input onChange={(e)=>setUsername(e.target.value)} className='w-full px-4 py-2 border-black outline-0 ' type='text' placeholder='Enter your name'>
           </input>
-          <input onChange={(e)=>setemail(e.target.value)} className='w-full px-4 py-2 border-black outline-0 ' type='text' placeholder='Enter your email'>
+          <input onChange={(e)=>setemail(e.target.value)} className='w-full px-4 py-2 border-black outline-0 ' type='email' placeholder='Enter your email'>
           </input>
           <input onChange={(e)=>setpassword(e.target.value)} className='w-full px-4 py-2 border-black outline-0 ' type='password' placeholder='Enter your password'>
           </input>

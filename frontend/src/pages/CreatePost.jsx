@@ -12,9 +12,9 @@ const CreatePost=()=> {
   const [title,setTitle] = useState("")
   const [desc, setdesc] = useState("")
   const [file,setfile] = useState(null)
-  const {user} = useContext(UserContext)
   const [cat,setCat] = useState("a")
   const [cats,setCats] = useState([])
+  const {user} = useContext(UserContext)
 
   const navigate = useNavigate()
 
@@ -57,7 +57,7 @@ const CreatePost=()=> {
 
     try{
       const res = await axios.post("/api/posts/post/create",post,{withCredentials:true})
-      navigate("/posts/post",+res.data._id)
+      navigate("/posts/post/",+res.data._id)
     }
     catch(err){
       console.log(err)
@@ -72,6 +72,7 @@ const CreatePost=()=> {
             <h1 className="font-bold md:text-2xl text-2xl mt-3 flex justify-center">
               Create a post
             </h1>
+
             <form action="" className="w-full flex flex-col space-y-4 md:space-y-8 mt-4 ">
               <input onChange={(e)=>setTitle(e.target.value)} type='text' placeholder='Enter Post title' className='px-4 py-2 outilne-none'></input>
               <input onChange={(e)=>setfile(e.target.files[0])} type='file' className='px-4'></input>
@@ -88,6 +89,7 @@ const CreatePost=()=> {
                     <option value="Technology">Technology</option>
                     <option value="Web Development">Web Development</option>
                   </select>
+                  
                   <div className="bg-black text-white px-4 py-2 font-semibold cursor-pointer" onClick={addCategory}>
                     Add category
                   </div>
